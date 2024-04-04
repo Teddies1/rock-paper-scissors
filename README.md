@@ -1,1 +1,1 @@
-# rock-paper-scissors
+# This repo contains the Rock Paper Scissors game from the Odin Project.
