@@ -49,19 +49,19 @@ function playGame(){
     let computerdiv = document.querySelector(".computer-results");
 
     let pScore = document.createElement("div");
+    pScore.textContent = playerScore;
+    playerdiv.appendChild(pScore);
+
     let cScore = document.createElement("div");
-
-    let playerChoice = '';
-    let result = 0;
-
+    cScore.textContent = computerScore;
+    computerdiv.appendChild(cScore);
+    
     let buttons = document.querySelectorAll("button");
-    console.log(buttons);
 
     buttons.forEach((button) => {
         button.addEventListener("click", () => {
-            playerChoice = button.textContent.toLowerCase();
-            result = playRound(playerChoice, getComputerChoice());
-            console.log(result);
+            let playerChoice = button.textContent.toLowerCase();
+            let result = playRound(playerChoice, getComputerChoice());
 
             if (result === 1){
                 console.log("Player wins this round!");
@@ -78,37 +78,18 @@ function playGame(){
                 cScore.textContent = computerScore;
                 computerdiv.appendChild(cScore);
             }
+            console.log(playerScore, computerScore);
+
+            if (playerScore === 5){
+                let winner = document.querySelector(".winner-text");
+                winner.textContent = "Player wins!";
+            }
+            if (computerScore === 5){
+                let winner = document.querySelector(".winner-text");
+                winner.textContent = "Computer wins!";
+            }
         });
     });
-
-    
-
-    //     let playerChoice = prompt("Choose either rock, paper or scissors!");
-    //     let computerSelection = getComputerChoice();
-    //     let result = playRound(playerChoice, computerSelection);
-
-    //     if (result === 1){
-    //         console.log("Player wins this round!");
-    //         playerScore++;
-    //     }
-    //     else if (result === 0){
-    //         console.log("This round is a tie!");
-    //     }
-    //     else{
-    //         console.log("Player loses this round!");
-    //         computerScore++;;
-    //     }
-    // }
-    
-    // if (playerScore > computerScore){
-    //     return "Player wins!";
-    // }
-    // else if (computerScore > playerScore){
-    //     return "Player loses!";
-    // }
-    // else{
-    //     return "It's a draw!"
-    // }
 }
 
 playGame();
