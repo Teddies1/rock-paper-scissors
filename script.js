@@ -48,11 +48,11 @@ function playGame(){
     let playerdiv = document.querySelector(".player-results");
     let computerdiv = document.querySelector(".computer-results");
 
-    let pScore = document.createElement("div");
+    let pScore = document.querySelector(".player-score");
     pScore.textContent = playerScore;
     playerdiv.appendChild(pScore);
 
-    let cScore = document.createElement("div");
+    let cScore = document.querySelector(".computer-score");
     cScore.textContent = computerScore;
     computerdiv.appendChild(cScore);
     
@@ -82,11 +82,11 @@ function playGame(){
 
             if (playerScore === 5){
                 let winner = document.querySelector(".winner-text");
-                winner.textContent = "Player wins!";
+                winner.textContent = "Congratulations! Player wins!";
             }
             if (computerScore === 5){
                 let winner = document.querySelector(".winner-text");
-                winner.textContent = "Computer wins!";
+                winner.textContent = "Sorry! Computer wins!";
             }
         });
     });
